@@ -4,16 +4,16 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 181370ea35b86d2f2567e27472560ac59b7bd1ce079ff777a154731635bba9fc
+-- hash: 4b1836e8c2465d1f9f1d09b44d81cf88dbf9ec21e76bad9eb5b5df541de3313f
 
 name:           multikey
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/multikey#readme>
 homepage:       https://github.com/githubuser/multikey#readme
 bug-reports:    https://github.com/githubuser/multikey/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2020 Author name here
+author:         Dean Bolte
+maintainer:     dean.bolte7@gmail.com
+copyright:      2020 Dean Bolte
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple

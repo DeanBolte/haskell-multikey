@@ -2,9 +2,9 @@ name:                multikey
 version:             0.1.0.0
 github:              "githubuser/multikey"
 license:             BSD3
-author:              "Author name here"
-maintainer:          "example@example.com"
-copyright:           "2020 Author name here"
+author:              "Dean Bolte"
+maintainer:          "dean.bolte7@gmail.com"
+copyright:           "2020 Dean Bolte"
 
 extra-source-files:
 - README.md
