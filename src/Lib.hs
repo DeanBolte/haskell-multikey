@@ -4,19 +4,29 @@ module Lib
 
 import Prelude
 
-multiKey :: Integer -> Integer -> Integer -> Integer -> Integer -> Integer -> IO ()
-multiKey message p q k1 k2 k3 = do
+multiKey :: Integer -> Integer -> Integer -> Integer -> IO ()
+multiKey message k1 k2 k3 = do
     -- Bank
+    let p = 11
+    let q = 17
     let n = p * q
     let phi = (p - 1) * (q - 1)
     let k4 = parseMaybeInt $ (k1 * k2 * k3) `invmod` phi
     print k4
     -- Alice, Bob, Karen
-    let s = (message ^ (k1 * k3 * k4)) `mod` n
+    let s = powerMod n message (k1 * k3 * k4)
     print s
     -- Verification
-    let m' = (s ^ k2) `mod` n
+    let m' = powerMod n s k2
     print m'
+
+powerMod :: Integral a => a -> a -> a -> a
+powerMod _ _ 0 = 1
+powerMod m x 1 = x `mod` m
+powerMod m x n
+    | even n = powerMod m modSquare (n`div`2)
+    | otherwise = (x * powerMod m modSquare ((n-1)`div`2)) `mod` m
+    where modSquare = x * (x `mod` m)
 
 parseMaybeInt :: Maybe Integer -> Integer
 parseMaybeInt (Just x) = x
