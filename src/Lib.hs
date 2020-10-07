@@ -3,19 +3,23 @@ module Lib
     ) where
 
 import Prelude
-import Math.NumberTheory.Primes
+import System.Random 
+import Data.Bits
+import Math.NumberTheory.Primes.Testing
+import Control.Monad.Fix
 
-multiKey :: Integer -> Integer -> Integer -> Integer -> IO ()
-multiKey message k1 k2 k3 = do
+multiKey :: Integer -> IO ()
+multiKey message = do
     -- Bank
-    let (p, q) = rndPrimes 4
+    (p, q) <- rndPrimes 16
     let n = p * q
     let phi = (p - 1) * (q - 1)
+    k1 <- rndPrime 8
+    k2 <- rndPrime 8
+    k3 <- rndPrime 8
     let k4 = parseMaybeInt $ (k1 * k2 * k3) `invmod` phi
-    print k4
     -- Alice, Bob, Karen
     let s = powerMod n message (k1 * k3 * k4)
-    print s
     -- Verification
     let m' = powerMod n s k2
     print m'

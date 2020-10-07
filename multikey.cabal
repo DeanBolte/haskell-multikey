@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a19db857b11637550de5b0419ea6ff194b6592413596ffca92bbd085a1993511
+-- hash: 4853d435e940c07c540035f388006e662b241934d766de475ca2d116b62a83e4
 
 name:           multikey
 version:        0.1.0.0
@@ -35,6 +35,7 @@ library
   build-depends:
       arithmoi
     , base >=4.7 && <5
+    , random
   default-language: Haskell2010
 
 executable multikey-exe
@@ -48,6 +49,7 @@ executable multikey-exe
       arithmoi
     , base >=4.7 && <5
     , multikey
+    , random
   default-language: Haskell2010
 
 test-suite multikey-test
@@ -62,4 +64,5 @@ test-suite multikey-test
       arithmoi
     , base >=4.7 && <5
     , multikey
+    , random
   default-language: Haskell2010
