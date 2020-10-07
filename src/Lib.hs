@@ -11,17 +11,20 @@ import Control.Monad.Fix
 multiKey :: Integer -> IO ()
 multiKey message = do
     -- Bank
-    (p, q) <- rndPrimes 16
+    (p, q) <- rndPrimes 64
     let n = p * q
-    let phi = (p - 1) * (q - 1)
-    k1 <- rndPrime 8
-    k2 <- rndPrime 8
-    k3 <- rndPrime 8
+        phi = (p - 1) * (q - 1)
+    k1 <- rndPrime 32
+    k2 <- rndPrime 32
+    k3 <- rndPrime 32
     let k4 = parseMaybeInt $ (k1 * k2 * k3) `invmod` phi
     -- Alice, Bob, Karen
     let s = powerMod n message (k1 * k3 * k4)
+    putStrLn "encrypted message: "
+    print s
     -- Verification
     let m' = powerMod n s k2
+    putStrLn "unencrypted message: "
     print m'
 
 powerMod :: Integral a => a -> a -> a -> a
