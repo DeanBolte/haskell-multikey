@@ -1,3 +1,3 @@
 # multikey
 
-This is a small haskell project to explore Multi-Key Encryption.
+This is a small haskell project to explore simple Multi-Key Encryption.
